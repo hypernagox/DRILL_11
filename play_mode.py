@@ -2,9 +2,10 @@ from pico2d import *
 import game_framework
 
 import game_world
+from bird import Bird
 from grass import Grass
 from boy import Boy
-
+import random
 # boy = None
 
 def handle_events():
@@ -29,6 +30,11 @@ def init():
     boy = Boy()
     game_world.add_object(boy, 1)
 
+    for i in range(10):
+        bird = Bird()
+        bird.y += -random.randint(1,10) * i
+        bird.x += random.randint(1,10) * i
+        game_world.add_object(bird)
 
 def finish():
     game_world.clear()
@@ -37,7 +43,6 @@ def finish():
 
 def update():
     game_world.update()
-    # delay(0.1)
 
 
 def draw():
