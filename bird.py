@@ -11,7 +11,7 @@ class Bird:
         self.bird_width,self.bird_height = 183,168
         self.acc_time = 0.0
         self.bird_frame = 0
-        self.bird_frame_time = 0.2 # 0.2초에 한번 날갯짓 => 초당 5번
+        self.bird_frame_time = 0.1 # 14 0.1    1.4초에 1번애니메이션 1.4초에 한번 날갯짓
         self.x,self.y = 500,500
         # 1픽셀 3센치
         # 1.5m , 1.5m 150cm
@@ -37,11 +37,11 @@ class Bird:
         if self.acc_time >= self.bird_frame_time:
             self.acc_time = 0.0
             self.bird_frame = (self.bird_frame + 1) % 4
-            if self.cur_action_y != 3:
+            if self.cur_action_y != 2:
                 temp = (self.cur_action_x + 1)
                 if temp == 5:
                     self.cur_action_y = (self.cur_action_y + 1) % 3
-                self.cur_action_x = temp % 4
+                self.cur_action_x = temp % 5
             else:
                 temp = (self.cur_action_x + 1)
                 if temp == 4:
